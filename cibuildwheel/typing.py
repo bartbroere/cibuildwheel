@@ -36,7 +36,7 @@ else:
 
 
 PlatformName = Literal["linux", "macos", "windows"]
-PLATFORMS: Final[Set[PlatformName]] = {"linux", "macos", "windows"}
+PLATFORMS: Final[Set[PlatformName]] = {"linux", "macos", "windows", "darwin_21_5_0"}
 
 
 def assert_never(value: NoReturn) -> NoReturn:
