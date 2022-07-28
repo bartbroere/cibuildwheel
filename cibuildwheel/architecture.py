@@ -6,7 +6,7 @@ from typing import Set
 
 from .typing import Final, Literal, PlatformName, assert_never
 
-PRETTY_NAMES: Final = {"linux": "Linux", "macos": "macOS", "windows": "Windows"}
+PRETTY_NAMES: Final = {"linux": "Linux", "macos": "macOS", "windows": "Windows", "darwin_21_5_0": "iOS"}
 
 
 @functools.total_ordering
@@ -30,6 +30,9 @@ class Architecture(Enum):
     x86 = "x86"
     AMD64 = "AMD64"
     ARM64 = "ARM64"
+    
+    # iOS archs
+    iphone = "iphone12,8"
 
     # Allow this to be sorted
     def __lt__(self, other: "Architecture") -> bool:
@@ -83,6 +86,7 @@ class Architecture(Enum):
             },
             "macos": {Architecture.x86_64, Architecture.arm64, Architecture.universal2},
             "windows": {Architecture.x86, Architecture.AMD64, Architecture.ARM64},
+            "ios": {Architecture.aarch64},
         }
         return all_archs_map[platform]
 
